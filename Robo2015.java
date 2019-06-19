@@ -75,23 +75,23 @@ public class Robo2015 extends AdvancedRobot {
         AttributeSet attributeSet = learningSet.attributeSet();
 
         Vector testAttributesVector = new Vector();
-        testAttributesVector.add(attributeSet.findByName(Memoria.escaneado));
-        testAttributesVector.add(attributeSet.findByName(Memoria.distancia));
-        testAttributesVector.add(attributeSet.findByName(Memoria.energiaEnemigo));
-        testAttributesVector.add(attributeSet.findByName(Memoria.apuntandoAEnemigo));
-        testAttributesVector.add(attributeSet.findByName(Memoria.golpeoBala));
-        testAttributesVector.add(attributeSet.findByName(Memoria.golpeoPared));
-        testAttributesVector.add(attributeSet.findByName(Memoria.golpeoEnemigo));
-        testAttributesVector.add(attributeSet.findByName(Memoria.energia));
-        testAttributesVector.add(attributeSet.findByName(Memoria.armaCaliente));
-        testAttributesVector.add(attributeSet.findByName(Memoria.X));
-        testAttributesVector.add(attributeSet.findByName(Memoria.Y));
-        testAttributesVector.add(attributeSet.findByName(Memoria.enMovimiento));
-        testAttributesVector.add(attributeSet.findByName(Memoria.armaGirando));
-        testAttributesVector.add(attributeSet.findByName(Memoria.robotGirando));
+        testAttributesVector.add(attributeSet.findByName(Matriz.escaneado));
+        testAttributesVector.add(attributeSet.findByName(Matriz.distancia));
+        testAttributesVector.add(attributeSet.findByName(Matriz.energiaEnemigo));
+        testAttributesVector.add(attributeSet.findByName(Matriz.apuntandoAEnemigo));
+        testAttributesVector.add(attributeSet.findByName(Matriz.golpeoBala));
+        testAttributesVector.add(attributeSet.findByName(Matriz.golpeoPared));
+        testAttributesVector.add(attributeSet.findByName(Matriz.golpeoEnemigo));
+        testAttributesVector.add(attributeSet.findByName(Matriz.energia));
+        testAttributesVector.add(attributeSet.findByName(Matriz.armaCaliente));
+        testAttributesVector.add(attributeSet.findByName(Matriz.X));
+        testAttributesVector.add(attributeSet.findByName(Matriz.Y));
+        testAttributesVector.add(attributeSet.findByName(Matriz.enMovimiento));
+        testAttributesVector.add(attributeSet.findByName(Matriz.armaGirando));
+        testAttributesVector.add(attributeSet.findByName(Matriz.robotGirando));
 
         AttributeSet testAttributes = new AttributeSet(testAttributesVector);
-        SymbolicAttribute goalAttribute = (SymbolicAttribute) attributeSet.findByName(Memoria.accion);
+        SymbolicAttribute goalAttribute = (SymbolicAttribute) attributeSet.findByName(Matriz.accion);
 
         DecisionTreeBuilder builder = new DecisionTreeBuilder(learningSet, testAttributes, goalAttribute);
         DecisionTree tree = builder.build().decisionTree();
@@ -114,46 +114,46 @@ public class Robo2015 extends AdvancedRobot {
             
             switch(accion)
             {
-                case Memoria.DISPAROFUERTE:
+                case Matriz.DISPAROFUERTE:
                     setFire(4);
                     break;
                     
-                case Memoria.DISPAROMEDIO:
+                case Matriz.DISPAROMEDIO:
                     setFire(2);
                     break;
                     
-                case Memoria.DISPAROLEVE:
+                case Matriz.DISPAROLEVE:
                     setFire(1);
                     break;
                     
-                case Memoria.MOVERARMA:
+                case Matriz.MOVERARMA:
                     setTurnGunRight(360);
                     break;
                     
-                case Memoria.APUNTAR:
+                case Matriz.APUNTAR:
                     setTurnGunRight((scannedRobot.getBearing() + getHeading() + 360)%360 - getGunHeading());
                     break;
                     
-                case Memoria.MEDIAVUELTA:
+                case Matriz.MEDIAVUELTA:
                     setTurnRight(180);
                     break;
                 
-                case Memoria.MOVER_SE:
+                case Matriz.MOVER_SE:
                     setTurnRight(135 - getHeading());
                     setAhead(Math.sqrt(Math.pow(getBattleFieldWidth()*0.7d - getX(), 2) + Math.pow(getBattleFieldHeight()*0.3 - getY(), 2)));
                     break;
                 
-                case Memoria.MOVER_NE:
+                case Matriz.MOVER_NE:
                     setTurnRight(45 - getHeading());
                     setAhead(Math.sqrt(Math.pow(getBattleFieldWidth()*0.7d - getX(), 2) + Math.pow(getBattleFieldHeight()*0.7 - getY(), 2)));
                     break;
                 
-                case Memoria.MOVER_NW:
+                case Matriz.MOVER_NW:
                     setTurnRight(315 - getHeading());
                     setAhead(Math.sqrt(Math.pow(getBattleFieldWidth()*0.3d - getX(), 2) + Math.pow(getBattleFieldHeight()*0.7 - getY(), 2)));
                     break;
                 
-                case Memoria.MOVER_SW:
+                case Matriz.MOVER_SW:
                     setTurnRight(225 - getHeading());
                     setAhead(Math.sqrt(Math.pow(getBattleFieldWidth()*0.3d - getX(), 2) + Math.pow(getBattleFieldHeight()*0.3 - getY(), 2)));
                     break;

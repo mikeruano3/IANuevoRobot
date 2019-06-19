@@ -9,7 +9,7 @@ package nuevorobot;
  *
  * @author miguel
  */
-public class Memoria {
+public class Matriz {
         //LISTA DE ARGUMENTOS
         public static String escaneado = "escaneado";
         public static String distancia = "distancia";
